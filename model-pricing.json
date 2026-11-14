@@ -1,0 +1,567 @@
+{
+  "$schema": "./model-pricing.schema.json",
+  "schema_version": "1.0.0",
+  "dataset": "Nodara model pricing reference",
+  "verified_on": "2026-11-14",
+  "generated_at": "2026-11-14T19:39:28.111781+00:00",
+  "currency": "USD",
+  "token_unit": 1000000,
+  "price_encoding": "decimal_string",
+  "discount_percent": 10,
+  "market_reference_method": "Selected cited provider quote per model; not a market-wide average or guaranteed minimum.",
+  "nodara_price_status": "reference_only_not_live_billing",
+  "nodara_formula": "nodara_price = common_market_price * 0.90",
+  "exclusions": [
+    "cached-input discounts",
+    "taxes",
+    "credit-purchase fees",
+    "provider minimum-request charges",
+    "free and batch routes"
+  ],
+  "notes": [
+    "Input and output are priced separately.",
+    "Provider minimum-request charges are recorded where known but are not copied into Nodara pricing.",
+    "Model-family comparisons may differ from contributor quantization, context and runtime.",
+    "Unverified prices are null, never zero.",
+    "No AI-credit-to-currency conversion is established by this dataset.",
+    "This static snapshot does not change live Nodara billing or contributor rewards."
+  ],
+  "models": [
+    {
+      "id": "smollm2-135m-instruct",
+      "name": "SmolLM2 135M Instruct",
+      "precision": null,
+      "catalog_model_ids": [
+        "HuggingFaceTB/SmolLM2-135M-Instruct"
+      ],
+      "common_market_price": null,
+      "nodara_price": {
+        "input": null,
+        "output": null,
+        "discount_percent": 10,
+        "status": "needs_market_reference"
+      },
+      "market_quotes": [],
+      "comparison_scope": "model_family_benchmark_unless_precision_matches"
+    },
+    {
+      "id": "qwen2.5-0.5b-instruct",
+      "name": "Qwen 2.5 0.5B Instruct",
+      "precision": null,
+      "catalog_model_ids": [
+        "Qwen/Qwen2.5-0.5B-Instruct"
+      ],
+      "common_market_price": {
+        "provider": "DiCompute",
+        "via": "direct",
+        "input": "0.01",
+        "output": "0.04",
+        "precision": null,
+        "source_url": "https://dicompute.ai/pricing",
+        "verified_on": "2026-11-14",
+        "minimum_request_usd": "0.0001",
+        "availability_note": "Published representative rate; live serving capacity not verified."
+      },
+      "nodara_price": {
+        "input": "0.009",
+        "output": "0.036",
+        "discount_percent": 10,
+        "status": "reference_only_not_live_billing"
+      },
+      "market_quotes": [
+        {
+          "provider": "DiCompute",
+          "via": "direct",
+          "input": "0.01",
+          "output": "0.04",
+          "precision": null,
+          "source_url": "https://dicompute.ai/pricing",
+          "verified_on": "2026-11-14",
+          "minimum_request_usd": "0.0001",
+          "availability_note": "Published representative rate; live serving capacity not verified."
+        }
+      ],
+      "comparison_scope": "model_family_benchmark_unless_precision_matches"
+    },
+    {
+      "id": "qwen2.5-1.5b-instruct",
+      "name": "Qwen 2.5 1.5B Instruct",
+      "precision": null,
+      "catalog_model_ids": [
+        "Qwen/Qwen2.5-1.5B-Instruct"
+      ],
+      "common_market_price": {
+        "provider": "Featherless",
+        "via": "direct",
+        "input": "0.04",
+        "output": "0.08",
+        "precision": "bf16",
+        "source_url": "https://featherless.ai/models/Qwen/Qwen2.5-1.5B-Instruct",
+        "verified_on": "2026-11-14"
+      },
+      "nodara_price": {
+        "input": "0.036",
+        "output": "0.072",
+        "discount_percent": 10,
+        "status": "reference_only_not_live_billing"
+      },
+      "market_quotes": [
+        {
+          "provider": "Featherless",
+          "via": "direct",
+          "input": "0.04",
+          "output": "0.08",
+          "precision": "bf16",
+          "source_url": "https://featherless.ai/models/Qwen/Qwen2.5-1.5B-Instruct",
+          "verified_on": "2026-11-14"
+        }
+      ],
+      "comparison_scope": "model_family_benchmark_unless_precision_matches"
+    },
+    {
+      "id": "qwen2.5-3b-instruct",
+      "name": "Qwen 2.5 3B Instruct",
+      "precision": null,
+      "catalog_model_ids": [
+        "mlx-community/Qwen2.5-3B-Instruct-4bit",
+        "tensorblock/Qwen2.5-3B-Instruct-GGUF"
+      ],
+      "common_market_price": {
+        "provider": "DiCompute",
+        "via": "direct",
+        "input": "0.05",
+        "output": "0.2",
+        "precision": null,
+        "source_url": "https://dicompute.ai/pricing",
+        "verified_on": "2026-11-14",
+        "minimum_request_usd": "0.0001",
+        "availability_note": "Published representative rate; live serving capacity not verified."
+      },
+      "nodara_price": {
+        "input": "0.045",
+        "output": "0.18",
+        "discount_percent": 10,
+        "status": "reference_only_not_live_billing"
+      },
+      "market_quotes": [
+        {
+          "provider": "DiCompute",
+          "via": "direct",
+          "input": "0.05",
+          "output": "0.2",
+          "precision": null,
+          "source_url": "https://dicompute.ai/pricing",
+          "verified_on": "2026-11-14",
+          "minimum_request_usd": "0.0001",
+          "availability_note": "Published representative rate; live serving capacity not verified."
+        }
+      ],
+      "comparison_scope": "model_family_benchmark_unless_precision_matches"
+    },
+    {
+      "id": "qwen2.5-7b-instruct",
+      "name": "Qwen 2.5 7B Instruct",
+      "precision": null,
+      "catalog_model_ids": [
+        "Qwen/Qwen2.5-7B-Instruct",
+        "Qwen/Qwen2.5-7B-Instruct-AWQ",
+        "Qwen/Qwen2.5-7B-Instruct-GPTQ-Int4",
+        "mlx-community/Qwen2.5-7B-Instruct-4bit",
+        "tensorblock/Qwen2.5-7B-Instruct-GGUF"
+      ],
+      "common_market_price": {
+        "provider": "Together",
+        "via": "direct",
+        "input": "0.3",
+        "output": "0.3",
+        "precision": "turbo_unspecified",
+        "source_url": "https://www.together.ai/pricing",
+        "verified_on": "2026-11-14"
+      },
+      "nodara_price": {
+        "input": "0.27",
+        "output": "0.27",
+        "discount_percent": 10,
+        "status": "reference_only_not_live_billing"
+      },
+      "market_quotes": [
+        {
+          "provider": "Together",
+          "via": "direct",
+          "input": "0.3",
+          "output": "0.3",
+          "precision": "turbo_unspecified",
+          "source_url": "https://www.together.ai/pricing",
+          "verified_on": "2026-11-14"
+        }
+      ],
+      "comparison_scope": "model_family_benchmark_unless_precision_matches"
+    },
+    {
+      "id": "qwen2.5-14b-instruct",
+      "name": "Qwen 2.5 14B Instruct",
+      "precision": null,
+      "catalog_model_ids": [
+        "Qwen/Qwen2.5-14B-Instruct",
+        "Qwen/Qwen2.5-14B-Instruct-AWQ",
+        "Qwen/Qwen2.5-14B-Instruct-GPTQ-Int4",
+        "mlx-community/Qwen2.5-14B-Instruct-4bit",
+        "tensorblock/Qwen2.5-14B-Instruct-GGUF"
+      ],
+      "common_market_price": {
+        "provider": "Featherless",
+        "via": "direct",
+        "input": "0.1078",
+        "output": "0.28",
+        "precision": "fp8",
+        "source_url": "https://featherless.ai/models/Qwen/Qwen2.5-14B-Instruct",
+        "verified_on": "2026-11-14"
+      },
+      "nodara_price": {
+        "input": "0.09702",
+        "output": "0.252",
+        "discount_percent": 10,
+        "status": "reference_only_not_live_billing"
+      },
+      "market_quotes": [
+        {
+          "provider": "Featherless",
+          "via": "direct",
+          "input": "0.1078",
+          "output": "0.28",
+          "precision": "fp8",
+          "source_url": "https://featherless.ai/models/Qwen/Qwen2.5-14B-Instruct",
+          "verified_on": "2026-11-14"
+        }
+      ],
+      "comparison_scope": "model_family_benchmark_unless_precision_matches"
+    },
+    {
+      "id": "qwen2.5-32b-instruct",
+      "name": "Qwen 2.5 32B Instruct",
+      "precision": null,
+      "catalog_model_ids": [
+        "Qwen/Qwen2.5-32B-Instruct",
+        "Qwen/Qwen2.5-32B-Instruct-AWQ",
+        "Qwen/Qwen2.5-32B-Instruct-GPTQ-Int4",
+        "mlx-community/Qwen2.5-32B-Instruct-4bit",
+        "tensorblock/Qwen2.5-32B-Instruct-GGUF"
+      ],
+      "common_market_price": {
+        "provider": "Featherless",
+        "via": "direct",
+        "input": "0.68",
+        "output": "1.2",
+        "precision": "fp8",
+        "source_url": "https://featherless.ai/models/Qwen/Qwen2.5-32B-Instruct",
+        "verified_on": "2026-11-14"
+      },
+      "nodara_price": {
+        "input": "0.612",
+        "output": "1.08",
+        "discount_percent": 10,
+        "status": "reference_only_not_live_billing"
+      },
+      "market_quotes": [
+        {
+          "provider": "Featherless",
+          "via": "direct",
+          "input": "0.68",
+          "output": "1.2",
+          "precision": "fp8",
+          "source_url": "https://featherless.ai/models/Qwen/Qwen2.5-32B-Instruct",
+          "verified_on": "2026-11-14"
+        }
+      ],
+      "comparison_scope": "model_family_benchmark_unless_precision_matches"
+    },
+    {
+      "id": "qwen2.5-72b-instruct",
+      "name": "Qwen 2.5 72B Instruct",
+      "precision": null,
+      "catalog_model_ids": [
+        "Qwen/Qwen2.5-72B-Instruct",
+        "Qwen/Qwen2.5-72B-Instruct-AWQ",
+        "Qwen/Qwen2.5-72B-Instruct-GPTQ-Int4",
+        "mlx-community/Qwen2.5-72B-Instruct-4bit",
+        "tensorblock/Qwen2.5-72B-Instruct-GGUF"
+      ],
+      "common_market_price": {
+        "provider": "DeepInfra",
+        "via": "openrouter",
+        "input": "0.36",
+        "output": "0.4",
+        "precision": "fp8",
+        "source_url": "https://openrouter.ai/api/v1/models/qwen/qwen-2.5-72b-instruct/endpoints",
+        "verified_on": "2026-11-14",
+        "context_tokens": 32768,
+        "provider_route": "deepinfra/fp8"
+      },
+      "nodara_price": {
+        "input": "0.324",
+        "output": "0.36",
+        "discount_percent": 10,
+        "status": "reference_only_not_live_billing"
+      },
+      "market_quotes": [
+        {
+          "provider": "DeepInfra",
+          "via": "openrouter",
+          "input": "0.36",
+          "output": "0.4",
+          "precision": "fp8",
+          "source_url": "https://openrouter.ai/api/v1/models/qwen/qwen-2.5-72b-instruct/endpoints",
+          "verified_on": "2026-11-14",
+          "context_tokens": 32768,
+          "provider_route": "deepinfra/fp8"
+        }
+      ],
+      "comparison_scope": "model_family_benchmark_unless_precision_matches"
+    },
+    {
+      "id": "qwen3-coder-30b-a3b-instruct",
+      "name": "Qwen3 Coder 30B-A3B Instruct",
+      "precision": null,
+      "catalog_model_ids": [
+        "Qwen/Qwen3-Coder-30B-A3B-Instruct"
+      ],
+      "common_market_price": {
+        "provider": "Novita",
+        "via": "direct",
+        "input": "0.07",
+        "output": "0.27",
+        "precision": "fp8",
+        "source_url": "https://novita.ai/models/model-detail/qwen-qwen3-coder-30b-a3b-instruct?from=pricing",
+        "verified_on": "2026-11-14"
+      },
+      "nodara_price": {
+        "input": "0.063",
+        "output": "0.243",
+        "discount_percent": 10,
+        "status": "reference_only_not_live_billing"
+      },
+      "market_quotes": [
+        {
+          "provider": "Novita",
+          "via": "direct",
+          "input": "0.07",
+          "output": "0.27",
+          "precision": "fp8",
+          "source_url": "https://novita.ai/models/model-detail/qwen-qwen3-coder-30b-a3b-instruct?from=pricing",
+          "verified_on": "2026-11-14"
+        },
+        {
+          "provider": "SiliconFlow",
+          "via": "openrouter",
+          "input": "0.07",
+          "output": "0.28",
+          "precision": "fp8",
+          "source_url": "https://openrouter.ai/api/v1/models/qwen/qwen3-coder-30b-a3b-instruct/endpoints",
+          "verified_on": "2026-11-14",
+          "context_tokens": 262144,
+          "provider_route": "siliconflow/fp8"
+        },
+        {
+          "provider": "Amazon Bedrock",
+          "via": "openrouter",
+          "input": "0.15",
+          "output": "0.6",
+          "precision": "unknown",
+          "source_url": "https://openrouter.ai/api/v1/models/qwen/qwen3-coder-30b-a3b-instruct/endpoints",
+          "verified_on": "2026-11-14",
+          "context_tokens": 262144,
+          "provider_route": "amazon-bedrock/us-west-2"
+        }
+      ],
+      "comparison_scope": "model_family_benchmark_unless_precision_matches"
+    },
+    {
+      "id": "muse-glimmer-30b",
+      "name": "Muse Glimmer 30B",
+      "precision": null,
+      "catalog_model_ids": [
+        "RedHatAI/Muse-Glimmer-30B-FP8-block",
+        "meta-models/Muse-Glimmer-30B"
+      ],
+      "common_market_price": {
+        "provider": "DeepInfra",
+        "via": "openrouter",
+        "input": "0.3",
+        "output": "1.2",
+        "precision": "bf16",
+        "source_url": "https://openrouter.ai/api/v1/models/meta/muse-glimmer-30b/endpoints",
+        "verified_on": "2026-11-14",
+        "context_tokens": 131072,
+        "provider_route": "deepinfra/bf16"
+      },
+      "nodara_price": {
+        "input": "0.27",
+        "output": "1.08",
+        "discount_percent": 10,
+        "status": "reference_only_not_live_billing"
+      },
+      "market_quotes": [
+        {
+          "provider": "DeepInfra",
+          "via": "openrouter",
+          "input": "0.3",
+          "output": "1.2",
+          "precision": "bf16",
+          "source_url": "https://openrouter.ai/api/v1/models/meta/muse-glimmer-30b/endpoints",
+          "verified_on": "2026-11-14",
+          "context_tokens": 131072,
+          "provider_route": "deepinfra/bf16"
+        },
+        {
+          "provider": "Together",
+          "via": "openrouter",
+          "input": "0.35",
+          "output": "1.5",
+          "precision": "unknown",
+          "source_url": "https://openrouter.ai/api/v1/models/meta/muse-glimmer-30b/endpoints",
+          "verified_on": "2026-11-14",
+          "context_tokens": 131072,
+          "provider_route": "together"
+        }
+      ],
+      "comparison_scope": "model_family_benchmark_unless_precision_matches"
+    },
+    {
+      "id": "nemotron-3.5-super-vl-120b-a12b-nvfp4",
+      "name": "Nemotron 3.5 Super VL 120B-A12B NVFP4",
+      "precision": "nvfp4",
+      "catalog_model_ids": [
+        "nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-NVFP4"
+      ],
+      "common_market_price": {
+        "provider": "Darkbloom",
+        "via": "openrouter",
+        "input": "0.06",
+        "output": "0.35",
+        "precision": "nvfp4",
+        "source_url": "https://openrouter.ai/api/v1/models/nvidia/nemotron-3.5-super-vl/endpoints",
+        "verified_on": "2026-11-14",
+        "context_tokens": 262144,
+        "provider_route": "darkbloom/nvfp4"
+      },
+      "nodara_price": {
+        "input": "0.054",
+        "output": "0.315",
+        "discount_percent": 10,
+        "status": "reference_only_not_live_billing"
+      },
+      "market_quotes": [
+        {
+          "provider": "Darkbloom",
+          "via": "openrouter",
+          "input": "0.06",
+          "output": "0.35",
+          "precision": "nvfp4",
+          "source_url": "https://openrouter.ai/api/v1/models/nvidia/nemotron-3.5-super-vl/endpoints",
+          "verified_on": "2026-11-14",
+          "context_tokens": 262144,
+          "provider_route": "darkbloom/nvfp4"
+        },
+        {
+          "provider": "Io Net",
+          "via": "openrouter",
+          "input": "0.09",
+          "output": "0.3",
+          "precision": "nvfp4",
+          "source_url": "https://openrouter.ai/api/v1/models/nvidia/nemotron-3.5-super-vl/endpoints",
+          "verified_on": "2026-11-14",
+          "context_tokens": 262144,
+          "provider_route": "io-net/nvfp4"
+        },
+        {
+          "provider": "CoreWeave",
+          "via": "openrouter",
+          "input": "0.15",
+          "output": "0.47",
+          "precision": "nvfp4",
+          "source_url": "https://openrouter.ai/api/v1/models/nvidia/nemotron-3.5-super-vl/endpoints",
+          "verified_on": "2026-11-14",
+          "context_tokens": 1048576,
+          "provider_route": "coreweave/nvfp4"
+        },
+        {
+          "provider": "PrimeIntellect",
+          "via": "openrouter",
+          "input": "0.15",
+          "output": "0.5",
+          "precision": "nvfp4",
+          "source_url": "https://openrouter.ai/api/v1/models/nvidia/nemotron-3.5-super-vl/endpoints",
+          "verified_on": "2026-11-14",
+          "context_tokens": 1048576,
+          "provider_route": "primeintellect/nvfp4"
+        }
+      ],
+      "comparison_scope": "model_family_benchmark_unless_precision_matches"
+    },
+    {
+      "id": "nemotron-3.5-super-vl-120b-a12b-bf16",
+      "name": "Nemotron 3.5 Super VL 120B-A12B BF16",
+      "precision": "bf16",
+      "catalog_model_ids": [
+        "nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-BF16"
+      ],
+      "common_market_price": {
+        "provider": "Crusoe",
+        "via": "openrouter",
+        "input": "0.1",
+        "output": "0.4",
+        "precision": "bf16",
+        "source_url": "https://openrouter.ai/api/v1/models/nvidia/nemotron-3.5-super-vl/endpoints",
+        "verified_on": "2026-11-14",
+        "context_tokens": 1048576,
+        "provider_route": "crusoe/bf16"
+      },
+      "nodara_price": {
+        "input": "0.09",
+        "output": "0.36",
+        "discount_percent": 10,
+        "status": "reference_only_not_live_billing"
+      },
+      "market_quotes": [
+        {
+          "provider": "Crusoe",
+          "via": "openrouter",
+          "input": "0.1",
+          "output": "0.4",
+          "precision": "bf16",
+          "source_url": "https://openrouter.ai/api/v1/models/nvidia/nemotron-3.5-super-vl/endpoints",
+          "verified_on": "2026-11-14",
+          "context_tokens": 1048576,
+          "provider_route": "crusoe/bf16"
+        }
+      ],
+      "comparison_scope": "model_family_benchmark_unless_precision_matches"
+    }
+  ],
+  "columns": [
+    {
+      "key": "name",
+      "label": "Model"
+    },
+    {
+      "key": "common_market_price.input",
+      "label": "Common market input"
+    },
+    {
+      "key": "common_market_price.output",
+      "label": "Common market output"
+    },
+    {
+      "key": "nodara_price.input",
+      "label": "Nodara input"
+    },
+    {
+      "key": "nodara_price.output",
+      "label": "Nodara output"
+    },
+    {
+      "key": "nodara_price.discount_percent",
+      "label": "Cheaper by (%)"
+    }
+  ]
+}

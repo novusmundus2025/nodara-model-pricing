@@ -1,0 +1,201 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://novusmundus2025.github.io/nodara-model-pricing/model-pricing.schema.json",
+  "title": "Nodara model pricing reference",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "currency",
+    "token_unit",
+    "discount_percent",
+    "market_reference_method",
+    "nodara_price_status",
+    "models"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "currency": {
+      "const": "USD"
+    },
+    "token_unit": {
+      "const": 1000000
+    },
+    "discount_percent": {
+      "const": 10
+    },
+    "nodara_price_status": {
+      "const": "reference_only_not_live_billing"
+    },
+    "models": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "catalog_model_ids",
+          "common_market_price",
+          "nodara_price",
+          "market_quotes"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "catalog_model_ids": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "common_market_price": {
+            "anyOf": [
+              {
+                "type": "object",
+                "required": [
+                  "provider",
+                  "via",
+                  "input",
+                  "output",
+                  "source_url",
+                  "verified_on"
+                ],
+                "properties": {
+                  "provider": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "via": {
+                    "enum": [
+                      "direct",
+                      "openrouter"
+                    ]
+                  },
+                  "input": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "pattern": "^(0|[1-9][0-9]*)(\\.[0-9]+)?$"
+                  },
+                  "output": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "pattern": "^(0|[1-9][0-9]*)(\\.[0-9]+)?$"
+                  },
+                  "source_url": {
+                    "type": "string",
+                    "format": "uri",
+                    "pattern": "^https://"
+                  },
+                  "verified_on": {
+                    "type": "string",
+                    "format": "date"
+                  }
+                }
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "nodara_price": {
+            "type": "object",
+            "required": [
+              "input",
+              "output",
+              "discount_percent",
+              "status"
+            ],
+            "properties": {
+              "input": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "pattern": "^(0|[1-9][0-9]*)(\\.[0-9]+)?$"
+              },
+              "output": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "pattern": "^(0|[1-9][0-9]*)(\\.[0-9]+)?$"
+              },
+              "discount_percent": {
+                "const": 10
+              },
+              "status": {
+                "enum": [
+                  "reference_only_not_live_billing",
+                  "needs_market_reference"
+                ]
+              }
+            }
+          },
+          "market_quotes": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "provider",
+                "via",
+                "input",
+                "output",
+                "source_url",
+                "verified_on"
+              ],
+              "properties": {
+                "provider": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "via": {
+                  "enum": [
+                    "direct",
+                    "openrouter"
+                  ]
+                },
+                "input": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "pattern": "^(0|[1-9][0-9]*)(\\.[0-9]+)?$"
+                },
+                "output": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "pattern": "^(0|[1-9][0-9]*)(\\.[0-9]+)?$"
+                },
+                "source_url": {
+                  "type": "string",
+                  "format": "uri",
+                  "pattern": "^https://"
+                },
+                "verified_on": {
+                  "type": "string",
+                  "format": "date"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
