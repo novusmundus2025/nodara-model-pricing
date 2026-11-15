@@ -23,8 +23,8 @@
     "Provider minimum-request charges are recorded where known but are not copied into Nodara pricing.",
     "Model-family comparisons may differ from contributor quantization, context and runtime.",
     "Unverified prices are null, never zero.",
-    "No AI-credit-to-currency conversion is established by this dataset.",
-    "This static snapshot does not change live Nodara billing or contributor rewards."
+    "This static snapshot does not change live Nodara billing or contributor rewards.",
+    "AI credits measure discounted USD-equivalent model usage, with no extra multiplier. This does not activate billing."
   ],
   "models": [
     {
@@ -563,5 +563,9 @@
       "key": "nodara_price.discount_percent",
       "label": "Cheaper by (%)"
     }
-  ]
+  ],
+  "ai_credit_unit": "discounted_usd_usage",
+  "ai_credit_formula": "(input_tokens * nodara_price.input + output_tokens * nodara_price.output) / token_unit",
+  "extra_credit_multiplier": "1",
+  "discount_application": "The 10% discount is already included in nodara_price. Do not apply it again."
 }
