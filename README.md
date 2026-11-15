@@ -20,7 +20,7 @@ found. Null does not mean free. Provider request minimums are recorded where
 known; cached-input discounts, taxes and credit-purchase fees are excluded.
 
 These are published reference prices, **not connected to live Nodara billing**.
-They do not establish an AI-credit conversion, change contributor rewards or
+They do not change contributor rewards or
 enable models that are pending runtime qualification. No model weights,
 credentials, private application code or customer data are included.
 
@@ -44,3 +44,16 @@ Nodara price with decimal arithmetic: `market_price * Decimal("0.90")`.
 Run `python scripts/validate_pricing.py` before committing. The publishing
 workflow validates again and deploys only the JSON, schema and entry page.
 This is a dated snapshot; rates are not refreshed automatically.
+
+## AI credit formula
+
+AI credits consumed are the discounted input cost plus discounted output cost:
+
+```text
+(input_tokens * nodara_price.input + output_tokens * nodara_price.output) / 1,000,000
+```
+
+The rates already include the 10% discount; do not apply it again. There is no
+additional credit multiplier. For example, Nemotron NVFP4 with 1M input and 1M
+output consumes 0.054 + 0.315 = 0.369 AI credits. These credits measure
+USD-equivalent model usage; this formula does not activate payments or billing.
