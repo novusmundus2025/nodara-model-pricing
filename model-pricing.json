@@ -323,7 +323,8 @@
       "name": "Qwen3 Coder 30B-A3B Instruct",
       "precision": null,
       "catalog_model_ids": [
-        "Qwen/Qwen3-Coder-30B-A3B-Instruct"
+        "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+        "mlx-community/Qwen3-Coder-30B-A3B-Instruct-4bit"
       ],
       "common_market_price": {
         "provider": "Novita",
