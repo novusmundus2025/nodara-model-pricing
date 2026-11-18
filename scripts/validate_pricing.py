@@ -52,8 +52,33 @@ def validate(data):
                 )
 
 
+def validate_images(data):
+    assert data['currency']=='USD' and data['billing_unit']=='completed_image'
+    assert data['discount_percent']==10 and data['usd_per_ai_credit']=='1'
+    assert data['extra_credit_multiplier']=='1'
+    assert data['token_accounting']=='not_applicable_no_synthetic_image_tokens'
+    ids=set();profiles=set()
+    for row in data['models']:
+        assert row['id'] not in ids;ids.add(row['id'])
+        for profile in row['profile_ids']:
+            assert profile not in profiles;profiles.add(profile)
+        assert all(type(row[k]) is int and row[k]>0 for k in ('width','height','steps'))
+        reference=row['common_market_price'];price=row['nodara_price']['usd_per_image']
+        assert row['nodara_price']['discount_percent']==10
+        if reference is None:
+            assert price is None and row['status']=='needs_fixed_preset_reference'
+        else:
+            assert row['status']=='verified_market_reference'
+            assert amount(price)==amount(reference['usd_per_image'])*Decimal('0.90')
+            assert urlparse(reference['source_url']).scheme=='https'
+            date.fromisoformat(reference['verified_on'])
+
+
 if __name__ == "__main__":
     snapshot = json.loads((ROOT / "model-pricing.json").read_text(encoding="utf-8"))
     json.loads((ROOT / "model-pricing.schema.json").read_text(encoding="utf-8"))
     validate(snapshot)
+    images=json.loads((ROOT / "image-pricing.json").read_text(encoding="utf-8"))
+    validate_images(images)
+    print("Validated image presets without synthetic token accounting")
     print(f"Validated {len(snapshot['models'])} model/variant rows and exact 10% discounts")

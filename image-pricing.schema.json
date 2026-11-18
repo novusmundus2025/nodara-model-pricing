@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Nodara image generation pricing",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "currency",
+    "billing_unit",
+    "discount_percent",
+    "models"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "currency": {
+      "const": "USD"
+    },
+    "billing_unit": {
+      "const": "completed_image"
+    },
+    "discount_percent": {
+      "const": 10
+    },
+    "models": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "profile_ids",
+          "width",
+          "height",
+          "steps",
+          "common_market_price",
+          "nodara_price",
+          "status"
+        ]
+      }
+    }
+  }
+}

@@ -40,7 +40,7 @@ jobs:
       - name: Stage only public pricing artifacts
         run: |
           mkdir _site
-          cp model-pricing.json model-pricing.schema.json index.html .nojekyll _site/
+          cp model-pricing.json model-pricing.schema.json image-pricing.json image-pricing.schema.json index.html .nojekyll _site/
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
