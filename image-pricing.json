@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "dataset": "Nodara image generation pricing",
-  "verified_on": "2026-11-18",
+  "verified_on": "2026-11-19",
   "currency": "USD",
   "billing_unit": "completed_image",
   "ai_credit_unit": "discounted_usd_usage",
@@ -157,6 +157,39 @@
         "verified_on": "2026-11-18",
         "note": "Approximate variable hardware-time cost; not a verified fixed 512x512 20-step price."
       }
+    },
+    {
+      "id": "z-image-turbo-4bit-512",
+      "name": "Z-Image-Turbo MLX 4-bit",
+      "catalog_model_ids": [
+        "mflux-community/Z-Image-Turbo-mflux-q4"
+      ],
+      "profile_ids": [
+        "mflux-z-image-turbo-4bit-512-v1"
+      ],
+      "width": 512,
+      "height": 512,
+      "steps": 9,
+      "operation": "text_to_image",
+      "common_market_price": {
+        "provider": "fal.ai",
+        "usd_per_image": "0.00131072",
+        "usd_per_megapixel": "0.005",
+        "source_unit": "megapixel_1000000_pixels",
+        "source_url": "https://fal.ai/models/fal-ai/z-image/turbo",
+        "verified_on": "2026-11-19",
+        "calculation": "512 * 512 / 1000000 * 0.005"
+      },
+      "nodara_price": {
+        "usd_per_image": "0.001179648",
+        "discount_percent": 10
+      },
+      "status": "verified_market_reference",
+      "comparison_scope": "model_family_benchmark_quantization_adapters_and_runtime_may_differ",
+      "notes": [
+        "512x512, MLX 4-bit, 9 steps. Benchmark refers to the model family; provider runtime and step counts may differ.",
+        "No prompt expansion surcharge included. No synthetic image tokens."
+      ]
     }
   ]
 }
