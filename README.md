@@ -64,3 +64,22 @@ USD-equivalent model usage; this formula does not activate payments or billing.
 [Image pricing JSON](https://novusmundus2025.github.io/nodara-model-pricing/image-pricing.json) uses prices per completed image, separate from LLM token rates. Rows identify the served profile, resolution, steps, cited model-family benchmark and verification date. Rates are exactly 90% of that benchmark. No extra multiplier or synthetic image-token count applies. One AI credit is USD 1 of usage. Failed outputs and qualification probes do not earn image credits.
 
 FLUX.2 Klein 4B 4-bit and 8-bit 512x512: USD 0.0126 per image. Qwen Image 832x480: USD 0.018. Qwen Image Edit 2509 Lightning 832x480: USD 0.027. Quantized and Lightning output is not asserted identical to the reference route. DreamShaper has no verified fixed-preset quote: null means unverified, not free. Its approximate Replicate run cost is an observation only. Redis consumers use a separate versioned image cache key and preserve immutable job price snapshots.
+
+
+## Direct image quality comparisons
+
+Current image quotes are pricing references, not verified quality-equivalent offers.
+Every preset exposes `quality_comparison.status = not_evaluated` and
+`direct_comparison_allowed = false`. The 10% discount applies only to the cited
+provider quote; it does not claim 10% lower cost than ChatGPT at equivalent quality.
+
+Before enabling a direct comparison, match operation, width, height, output count
+and quality preset. Record both model versions and runtime settings (including
+quantization, steps and adapters), a shared prompt suite, evaluation method,
+results and date. Evaluate prompt adherence, text rendering, visual defects and
+editing fidelity where applicable. Matched dimensions alone are insufficient.
+The validator requires recorded passing evidence for a verified claim; it cannot
+independently establish visual quality. No current row has that evidence.
+
+Use `quality_comparison` to display “Quality comparison pending” until evaluated.
+Historical prices and receipt snapshots remain unchanged.

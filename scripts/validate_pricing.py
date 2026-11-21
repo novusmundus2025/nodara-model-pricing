@@ -53,12 +53,31 @@ def validate(data):
 
 
 def validate_images(data):
+    assert data['comparison_policy']['quality_equivalence_required_for_direct_comparison'] is True
     assert data['currency']=='USD' and data['billing_unit']=='completed_image'
     assert data['discount_percent']==10 and data['usd_per_ai_credit']=='1'
     assert data['extra_credit_multiplier']=='1'
     assert data['token_accounting']=='not_applicable_no_synthetic_image_tokens'
     ids=set();profiles=set()
     for row in data['models']:
+        comparison = row['quality_comparison']
+        assert comparison['status'] in {'not_evaluated', 'not_equivalent', 'verified_equivalent'}
+        verified = comparison['status'] == 'verified_equivalent'
+        assert comparison['direct_comparison_allowed'] is verified
+        if verified:
+            assert comparison['reference_model']
+            settings = comparison['matched_settings']
+            for field in data['comparison_policy']['required_matches']:
+                assert settings[field]['nodara'] == settings[field]['reference']
+                assert settings[field]['nodara'] is not None
+            assert settings['width']['nodara'] == row['width']
+            assert settings['height']['nodara'] == row['height']
+            assert settings['operation']['nodara'] == row['operation']
+            evidence = comparison['evaluation']
+            for field in data['comparison_policy']['required_evidence']:
+                assert evidence[field], 'Direct quality comparison lacks evidence'
+            assert evidence['evaluation_results']['passed'] is True
+            date.fromisoformat(evidence['evaluation_date'])
         assert row['id'] not in ids;ids.add(row['id'])
         for profile in row['profile_ids']:
             assert profile not in profiles;profiles.add(profile)
