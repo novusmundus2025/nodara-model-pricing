@@ -7,7 +7,8 @@
     "currency",
     "billing_unit",
     "discount_percent",
-    "models"
+    "models",
+    "comparison_policy"
   ],
   "properties": {
     "schema_version": {
@@ -35,8 +36,30 @@
           "steps",
           "common_market_price",
           "nodara_price",
-          "status"
-        ]
+          "status",
+          "quality_comparison"
+        ],
+        "properties": {
+          "quality_comparison": {
+            "type": "object",
+            "required": [
+              "status",
+              "direct_comparison_allowed"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "not_evaluated",
+                  "not_equivalent",
+                  "verified_equivalent"
+                ]
+              },
+              "direct_comparison_allowed": {
+                "type": "boolean"
+              }
+            }
+          }
+        }
       }
     }
   }

@@ -42,7 +42,14 @@
       "notes": [
         "The provider charges the first megapixel as a minimum; no fractional first-MP prorating.",
         "Not a claim that quantized output matches the provider output."
-      ]
+      ],
+      "quality_comparison": {
+        "status": "not_evaluated",
+        "direct_comparison_allowed": false,
+        "reference_model": null,
+        "matched_settings": null,
+        "evaluation": null
+      }
     },
     {
       "id": "flux2-klein-4b-8bit-512",
@@ -74,7 +81,14 @@
       "notes": [
         "The provider charges the first megapixel as a minimum; no fractional first-MP prorating.",
         "Not a claim that quantized output matches the provider output."
-      ]
+      ],
+      "quality_comparison": {
+        "status": "not_evaluated",
+        "direct_comparison_allowed": false,
+        "reference_model": null,
+        "matched_settings": null,
+        "evaluation": null
+      }
     },
     {
       "id": "qwen-image-832x480",
@@ -101,7 +115,14 @@
         "discount_percent": 10
       },
       "status": "verified_market_reference",
-      "comparison_scope": "model_family_benchmark_quantization_adapters_and_runtime_may_differ"
+      "comparison_scope": "model_family_benchmark_quantization_adapters_and_runtime_may_differ",
+      "quality_comparison": {
+        "status": "not_evaluated",
+        "direct_comparison_allowed": false,
+        "reference_model": null,
+        "matched_settings": null,
+        "evaluation": null
+      }
     },
     {
       "id": "qwen-image-edit-2509-832x480",
@@ -128,7 +149,14 @@
         "discount_percent": 10
       },
       "status": "verified_market_reference",
-      "comparison_scope": "model_family_benchmark_quantization_adapters_and_runtime_may_differ"
+      "comparison_scope": "model_family_benchmark_quantization_adapters_and_runtime_may_differ",
+      "quality_comparison": {
+        "status": "not_evaluated",
+        "direct_comparison_allowed": false,
+        "reference_model": null,
+        "matched_settings": null,
+        "evaluation": null
+      }
     },
     {
       "id": "dreamshaper-8-512",
@@ -156,6 +184,13 @@
         "source_url": "https://replicate.com/asiryan/dreamshaper-v8",
         "verified_on": "2026-11-18",
         "note": "Approximate variable hardware-time cost; not a verified fixed 512x512 20-step price."
+      },
+      "quality_comparison": {
+        "status": "not_evaluated",
+        "direct_comparison_allowed": false,
+        "reference_model": null,
+        "matched_settings": null,
+        "evaluation": null
       }
     },
     {
@@ -189,7 +224,36 @@
       "notes": [
         "512x512, MLX 4-bit, 9 steps. Benchmark refers to the model family; provider runtime and step counts may differ.",
         "No prompt expansion surcharge included. No synthetic image tokens."
-      ]
+      ],
+      "quality_comparison": {
+        "status": "not_evaluated",
+        "direct_comparison_allowed": false,
+        "reference_model": null,
+        "matched_settings": null,
+        "evaluation": null
+      }
     }
-  ]
+  ],
+  "comparison_policy": {
+    "version": "1.0",
+    "price_discount_basis": "cited_provider_quote_only",
+    "quality_equivalence_required_for_direct_comparison": true,
+    "required_matches": [
+      "operation",
+      "width",
+      "height",
+      "output_count",
+      "quality_preset"
+    ],
+    "required_evidence": [
+      "reference_model_and_version",
+      "reference_runtime_settings",
+      "nodara_runtime_settings",
+      "shared_prompt_suite",
+      "evaluation_method",
+      "evaluation_results",
+      "evaluation_date"
+    ],
+    "note": "Matching dimensions or model family alone does not establish equivalent quality. No direct ChatGPT quality or cost equivalence is currently verified."
+  }
 }
