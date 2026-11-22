@@ -3,14 +3,14 @@
   "schema_version": "1.0.0",
   "dataset": "Nodara model pricing reference",
   "verified_on": "2026-11-14",
-  "generated_at": "2026-11-14T19:39:28.111781+00:00",
+  "generated_at": "2026-11-22T11:09:50.815311+00:00",
   "currency": "USD",
   "token_unit": 1000000,
   "price_encoding": "decimal_string",
-  "discount_percent": 10,
+  "discount_percent": 5,
   "market_reference_method": "Selected cited provider quote per model; not a market-wide average or guaranteed minimum.",
   "nodara_price_status": "reference_only_not_live_billing",
-  "nodara_formula": "nodara_price = common_market_price * 0.90",
+  "nodara_formula": "nodara_price = common_market_price * 0.95",
   "exclusions": [
     "cached-input discounts",
     "taxes",
@@ -38,7 +38,7 @@
       "nodara_price": {
         "input": null,
         "output": null,
-        "discount_percent": 10,
+        "discount_percent": 5,
         "status": "needs_market_reference"
       },
       "market_quotes": [],
@@ -63,9 +63,9 @@
         "availability_note": "Published representative rate; live serving capacity not verified."
       },
       "nodara_price": {
-        "input": "0.009",
-        "output": "0.036",
-        "discount_percent": 10,
+        "input": "0.0095",
+        "output": "0.038",
+        "discount_percent": 5,
         "status": "reference_only_not_live_billing"
       },
       "market_quotes": [
@@ -100,9 +100,9 @@
         "verified_on": "2026-11-14"
       },
       "nodara_price": {
-        "input": "0.036",
-        "output": "0.072",
-        "discount_percent": 10,
+        "input": "0.038",
+        "output": "0.076",
+        "discount_percent": 5,
         "status": "reference_only_not_live_billing"
       },
       "market_quotes": [
@@ -138,9 +138,9 @@
         "availability_note": "Published representative rate; live serving capacity not verified."
       },
       "nodara_price": {
-        "input": "0.045",
-        "output": "0.18",
-        "discount_percent": 10,
+        "input": "0.0475",
+        "output": "0.19",
+        "discount_percent": 5,
         "status": "reference_only_not_live_billing"
       },
       "market_quotes": [
@@ -179,9 +179,9 @@
         "verified_on": "2026-11-14"
       },
       "nodara_price": {
-        "input": "0.27",
-        "output": "0.27",
-        "discount_percent": 10,
+        "input": "0.285",
+        "output": "0.285",
+        "discount_percent": 5,
         "status": "reference_only_not_live_billing"
       },
       "market_quotes": [
@@ -218,9 +218,9 @@
         "verified_on": "2026-11-14"
       },
       "nodara_price": {
-        "input": "0.09702",
-        "output": "0.252",
-        "discount_percent": 10,
+        "input": "0.10241",
+        "output": "0.266",
+        "discount_percent": 5,
         "status": "reference_only_not_live_billing"
       },
       "market_quotes": [
@@ -257,9 +257,9 @@
         "verified_on": "2026-11-14"
       },
       "nodara_price": {
-        "input": "0.612",
-        "output": "1.08",
-        "discount_percent": 10,
+        "input": "0.646",
+        "output": "1.14",
+        "discount_percent": 5,
         "status": "reference_only_not_live_billing"
       },
       "market_quotes": [
@@ -298,9 +298,9 @@
         "provider_route": "deepinfra/fp8"
       },
       "nodara_price": {
-        "input": "0.324",
-        "output": "0.36",
-        "discount_percent": 10,
+        "input": "0.342",
+        "output": "0.38",
+        "discount_percent": 5,
         "status": "reference_only_not_live_billing"
       },
       "market_quotes": [
@@ -336,9 +336,9 @@
         "verified_on": "2026-11-14"
       },
       "nodara_price": {
-        "input": "0.063",
-        "output": "0.243",
-        "discount_percent": 10,
+        "input": "0.0665",
+        "output": "0.2565",
+        "discount_percent": 5,
         "status": "reference_only_not_live_billing"
       },
       "market_quotes": [
@@ -396,9 +396,9 @@
         "provider_route": "deepinfra/bf16"
       },
       "nodara_price": {
-        "input": "0.27",
-        "output": "1.08",
-        "discount_percent": 10,
+        "input": "0.285",
+        "output": "1.14",
+        "discount_percent": 5,
         "status": "reference_only_not_live_billing"
       },
       "market_quotes": [
@@ -446,9 +446,9 @@
         "provider_route": "darkbloom/nvfp4"
       },
       "nodara_price": {
-        "input": "0.054",
-        "output": "0.315",
-        "discount_percent": 10,
+        "input": "0.057",
+        "output": "0.3325",
+        "discount_percent": 5,
         "status": "reference_only_not_live_billing"
       },
       "market_quotes": [
@@ -518,9 +518,9 @@
         "provider_route": "crusoe/bf16"
       },
       "nodara_price": {
-        "input": "0.09",
-        "output": "0.36",
-        "discount_percent": 10,
+        "input": "0.095",
+        "output": "0.38",
+        "discount_percent": 5,
         "status": "reference_only_not_live_billing"
       },
       "market_quotes": [
@@ -568,5 +568,5 @@
   "ai_credit_unit": "discounted_usd_usage",
   "ai_credit_formula": "(input_tokens * nodara_price.input + output_tokens * nodara_price.output) / token_unit",
   "extra_credit_multiplier": "1",
-  "discount_application": "The 10% discount is already included in nodara_price. Do not apply it again."
+  "discount_application": "The 5% discount is already included in nodara_price. Do not apply it again."
 }
