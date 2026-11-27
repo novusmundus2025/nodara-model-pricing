@@ -3,7 +3,7 @@
   "schema_version": "1.0.0",
   "dataset": "Nodara model pricing reference",
   "verified_on": "2026-11-14",
-  "generated_at": "2026-11-22T11:09:50.815311+00:00",
+  "generated_at": "2026-11-27T00:54:32.891986+00:00",
   "currency": "USD",
   "token_unit": 1000000,
   "price_encoding": "decimal_string",
@@ -23,8 +23,8 @@
     "Provider minimum-request charges are recorded where known but are not copied into Nodara pricing.",
     "Model-family comparisons may differ from contributor quantization, context and runtime.",
     "Unverified prices are null, never zero.",
-    "This static snapshot does not change live Nodara billing or contributor rewards.",
-    "AI credits measure discounted USD-equivalent model usage, with no extra multiplier. This does not activate billing."
+    "AI credits measure discounted USD-equivalent model usage, with no extra multiplier. This does not activate billing.",
+    "Configured Nodara metered billing consumes these rates. Reference status describes benchmark provenance; this file alone does not enable billing. Existing receipts retain their price snapshots."
   ],
   "models": [
     {
@@ -534,6 +534,45 @@
           "verified_on": "2026-11-14",
           "context_tokens": 1048576,
           "provider_route": "crusoe/bf16"
+        }
+      ],
+      "comparison_scope": "model_family_benchmark_unless_precision_matches"
+    },
+    {
+      "id": "qwen3.5-35b-a3b-4bit",
+      "name": "Qwen3.5 35B-A3B MLX 4-bit",
+      "precision": "4-bit",
+      "catalog_model_ids": [
+        "mlx-community/Qwen3.5-35B-A3B-4bit"
+      ],
+      "common_market_price": {
+        "provider": "Darkbloom",
+        "via": "openrouter",
+        "input": "0.065",
+        "output": "0.75",
+        "precision": "fp4",
+        "source_url": "https://openrouter.ai/api/v1/models/qwen/qwen3.5-35b-a3b/endpoints",
+        "verified_on": "2026-11-27",
+        "context_tokens": 262144,
+        "provider_route": "darkbloom/fp4"
+      },
+      "nodara_price": {
+        "input": "0.06175",
+        "output": "0.7125",
+        "discount_percent": 5,
+        "status": "reference_only_not_live_billing"
+      },
+      "market_quotes": [
+        {
+          "provider": "Darkbloom",
+          "via": "openrouter",
+          "input": "0.065",
+          "output": "0.75",
+          "precision": "fp4",
+          "source_url": "https://openrouter.ai/api/v1/models/qwen/qwen3.5-35b-a3b/endpoints",
+          "verified_on": "2026-11-27",
+          "context_tokens": 262144,
+          "provider_route": "darkbloom/fp4"
         }
       ],
       "comparison_scope": "model_family_benchmark_unless_precision_matches"
