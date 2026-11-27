@@ -14,13 +14,14 @@ route, precision, source URL and verification date. Additional OpenRouter routes
 are retained in `market_quotes`. Comparisons can differ from contributor
 quantization and serving conditions.
 
-The snapshot contains 12 model/variant rows, including Nemotron 3.5 Super VL
+The snapshot contains 13 model/variant rows, including Nemotron 3.5 Super VL
 NVFP4 and BF16. SmolLM2 135M has null prices because no verified reference was
 found. Null does not mean free. Provider request minimums are recorded where
 known; cached-input discounts, taxes and credit-purchase fees are excluded.
 
-These are published reference prices, **not connected to live Nodara billing**.
-They do not change contributor rewards or
+Configured Nodara metered billing consumes these published rates through its Redis pricing cache.
+Reference status describes benchmark provenance, not a billing feature flag. Existing receipts retain their price snapshots.
+Publishing does not itself enable billing or
 enable models that are pending runtime qualification. No model weights,
 credentials, private application code or customer data are included.
 
@@ -81,5 +82,7 @@ editing fidelity where applicable. Matched dimensions alone are insufficient.
 The validator requires recorded passing evidence for a verified claim; it cannot
 independently establish visual quality. No current row has that evidence.
 
-Use `quality_comparison` to display ìQuality comparison pendingî until evaluated.
+Use `quality_comparison` to display ‚ÄúQuality comparison pending‚Äù until evaluated.
 Historical prices and receipt snapshots remain unchanged.
+
+Qwen3.5 35B-A3B MLX 4-bit uses the cited Darkbloom FP4 model-family benchmark, verified 2026-11-27. Rates per million tokens: input USD 0.06175, output USD 0.7125. FP4 and MLX 4-bit are not asserted quality-equivalent; the provider reference context is not a contributor context limit.
