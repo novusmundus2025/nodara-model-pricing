@@ -21,7 +21,7 @@
       "const": "completed_image"
     },
     "discount_percent": {
-      "const": 5
+      "const": 3
     },
     "models": {
       "type": "array",

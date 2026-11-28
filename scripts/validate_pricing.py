@@ -1,4 +1,4 @@
-"""Validate the published snapshot and its exact 5% discount using decimal arithmetic."""
+"""Validate the published snapshot and its exact 3% discount using decimal arithmetic."""
 
 import json
 import re
@@ -21,7 +21,7 @@ def amount(value):
 def validate(data):
     assert data["schema_version"] == "1.0.0"
     assert data["currency"] == "USD" and data["token_unit"] == 1_000_000
-    assert data["discount_percent"] == 5
+    assert data["discount_percent"] == 3
     assert data["nodara_price_status"] == "reference_only_not_live_billing"
     date.fromisoformat(data["verified_on"])
     assert datetime.fromisoformat(data["generated_at"]).tzinfo is not None
@@ -32,7 +32,7 @@ def validate(data):
         ids.add(model["id"])
         assert model["catalog_model_ids"] and model["name"]
         reference, nodara = model["common_market_price"], model["nodara_price"]
-        assert nodara["discount_percent"] == 5
+        assert nodara["discount_percent"] == 3
         for quote in model["market_quotes"]:
             assert quote["provider"] and quote["via"] in {"direct", "openrouter"}
             source = urlparse(quote["source_url"])
@@ -47,15 +47,15 @@ def validate(data):
             assert reference in model["market_quotes"], "Benchmark lacks provenance"
             assert nodara["status"] == "reference_only_not_live_billing"
             for field in ("input", "output"):
-                assert amount(nodara[field]) == amount(reference[field]) * Decimal("0.95"), (
-                    f"{model['id']} {field} must be exactly 5% cheaper"
+                assert amount(nodara[field]) == amount(reference[field]) * Decimal("0.97"), (
+                    f"{model['id']} {field} must be exactly 3% cheaper"
                 )
 
 
 def validate_images(data):
     assert data['comparison_policy']['quality_equivalence_required_for_direct_comparison'] is True
     assert data['currency']=='USD' and data['billing_unit']=='completed_image'
-    assert data['discount_percent']==5 and data['usd_per_ai_credit']=='1'
+    assert data['discount_percent']==3 and data['usd_per_ai_credit']=='1'
     assert data['extra_credit_multiplier']=='1'
     assert data['token_accounting']=='not_applicable_no_synthetic_image_tokens'
     ids=set();profiles=set()
@@ -83,12 +83,12 @@ def validate_images(data):
             assert profile not in profiles;profiles.add(profile)
         assert all(type(row[k]) is int and row[k]>0 for k in ('width','height','steps'))
         reference=row['common_market_price'];price=row['nodara_price']['usd_per_image']
-        assert row['nodara_price']['discount_percent']==5
+        assert row['nodara_price']['discount_percent']==3
         if reference is None:
             assert price is None and row['status']=='needs_fixed_preset_reference'
         else:
             assert row['status']=='verified_market_reference'
-            assert amount(price)==amount(reference['usd_per_image'])*Decimal('0.95')
+            assert amount(price)==amount(reference['usd_per_image'])*Decimal('0.97')
             assert urlparse(reference['source_url']).scheme=='https'
             date.fromisoformat(reference['verified_on'])
 
@@ -100,4 +100,4 @@ if __name__ == "__main__":
     images=json.loads((ROOT / "image-pricing.json").read_text(encoding="utf-8"))
     validate_images(images)
     print("Validated image presets without synthetic token accounting")
-    print(f"Validated {len(snapshot['models'])} model/variant rows and exact 5% discounts")
+    print(f"Validated {len(snapshot['models'])} model/variant rows and exact 3% discounts")
