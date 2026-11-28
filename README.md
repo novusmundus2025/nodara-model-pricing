@@ -5,7 +5,7 @@ JSON endpoint: https://novusmundus2025.github.io/nodara-model-pricing/model-pric
 Schema: https://novusmundus2025.github.io/nodara-model-pricing/model-pricing.schema.json
 
 Prices are USD per **1,000,000 tokens**. `input` and `output` are decimal strings;
-use decimal arithmetic. `nodara_price` is exactly 95% of `common_market_price`
+use decimal arithmetic. `nodara_price` is exactly 97% of `common_market_price`
 for both input and output, without whole-cent rounding.
 
 `common_market_price` means a selected, cited provider benchmark. It is **not a
@@ -31,7 +31,7 @@ credentials, private application code or customer data are included.
 {
   "id": "nemotron-3.5-super-vl-120b-a12b-nvfp4",
   "common_market_price": {"input": "0.06", "output": "0.35"},
-  "nodara_price": {"input": "0.057", "output": "0.3325", "discount_percent": 5}
+  "nodara_price": {"input": "0.0582", "output": "0.3395", "discount_percent": 3}
 }
 ```
 
@@ -41,7 +41,7 @@ records. All example prices above are USD per million tokens.
 ## Updating
 
 Update the verified provider quotes and their dates, then recalculate each
-Nodara price with decimal arithmetic: `market_price * Decimal("0.95")`.
+Nodara price with decimal arithmetic: `market_price * Decimal("0.97")`.
 Run `python scripts/validate_pricing.py` before committing. The publishing
 workflow validates again and deploys only the JSON, schema and entry page.
 This is a dated snapshot; rates are not refreshed automatically.
@@ -54,25 +54,25 @@ AI credits consumed are the discounted input cost plus discounted output cost:
 (input_tokens * nodara_price.input + output_tokens * nodara_price.output) / 1,000,000
 ```
 
-The rates already include the 5% discount; do not apply it again. There is no
+The rates already include the 3% discount; do not apply it again. There is no
 additional credit multiplier. For example, Nemotron NVFP4 with 1M input and 1M
-output consumes 0.057 + 0.3325 = 0.3895 AI credits. These credits measure
+output consumes 0.0582 + 0.3395 = 0.3977 AI credits. These credits measure
 USD-equivalent model usage; this formula does not activate payments or billing.
 
 
 ## Image generation pricing
 
-[Image pricing JSON](https://novusmundus2025.github.io/nodara-model-pricing/image-pricing.json) uses prices per completed image, separate from LLM token rates. Rows identify the served profile, resolution, steps, cited model-family benchmark and verification date. Rates are exactly 95% of that benchmark. No extra multiplier or synthetic image-token count applies. One AI credit is USD 1 of usage. Failed outputs and qualification probes do not earn image credits.
+[Image pricing JSON](https://novusmundus2025.github.io/nodara-model-pricing/image-pricing.json) uses prices per completed image, separate from LLM token rates. Rows identify the served profile, resolution, steps, cited model-family benchmark and verification date. Rates are exactly 97% of that benchmark. No extra multiplier or synthetic image-token count applies. One AI credit is USD 1 of usage. Failed outputs and qualification probes do not earn image credits.
 
-FLUX.2 Klein 4B 4-bit and 8-bit 512x512: USD 0.0133 per image. Qwen Image 832x480: USD 0.019. Qwen Image Edit 2509 Lightning 832x480: USD 0.0285. Quantized and Lightning output is not asserted identical to the reference route. DreamShaper has no verified fixed-preset quote: null means unverified, not free. Its approximate Replicate run cost is an observation only. Redis consumers use a separate versioned image cache key and preserve immutable job price snapshots.
+FLUX.2 Klein 4B 4-bit and 8-bit 512x512: USD 0.01358 per image. Qwen Image 832x480: USD 0.0194. Qwen Image Edit 2509 Lightning 832x480: USD 0.0291. Quantized and Lightning output is not asserted identical to the reference route. DreamShaper has no verified fixed-preset quote: null means unverified, not free. Its approximate Replicate run cost is an observation only. Redis consumers use a separate versioned image cache key and preserve immutable job price snapshots.
 
 
 ## Direct image quality comparisons
 
 Current image quotes are pricing references, not verified quality-equivalent offers.
 Every preset exposes `quality_comparison.status = not_evaluated` and
-`direct_comparison_allowed = false`. The 5% discount applies only to the cited
-provider quote; it does not claim 5% lower cost than ChatGPT at equivalent quality.
+`direct_comparison_allowed = false`. The 3% discount applies only to the cited
+provider quote; it does not claim 3% lower cost than ChatGPT at equivalent quality.
 
 Before enabling a direct comparison, match operation, width, height, output count
 and quality preset. Record both model versions and runtime settings (including

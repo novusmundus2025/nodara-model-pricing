@@ -6,7 +6,7 @@
   "billing_unit": "completed_image",
   "ai_credit_unit": "discounted_usd_usage",
   "usd_per_ai_credit": "1",
-  "discount_percent": 5,
+  "discount_percent": 3,
   "extra_credit_multiplier": "1",
   "token_accounting": "not_applicable_no_synthetic_image_tokens",
   "settlement": "once_per_successfully_verified_output",
@@ -34,8 +34,8 @@
         "corroborating_url": "https://bfl.ai/pricing?category=flux.2"
       },
       "nodara_price": {
-        "usd_per_image": "0.0133",
-        "discount_percent": 5
+        "usd_per_image": "0.01358",
+        "discount_percent": 3
       },
       "status": "verified_market_reference",
       "comparison_scope": "model_family_benchmark_quantization_adapters_and_runtime_may_differ",
@@ -73,8 +73,8 @@
         "corroborating_url": "https://bfl.ai/pricing?category=flux.2"
       },
       "nodara_price": {
-        "usd_per_image": "0.0133",
-        "discount_percent": 5
+        "usd_per_image": "0.01358",
+        "discount_percent": 3
       },
       "status": "verified_market_reference",
       "comparison_scope": "model_family_benchmark_quantization_adapters_and_runtime_may_differ",
@@ -111,8 +111,8 @@
         "verified_on": "2026-11-18"
       },
       "nodara_price": {
-        "usd_per_image": "0.019",
-        "discount_percent": 5
+        "usd_per_image": "0.0194",
+        "discount_percent": 3
       },
       "status": "verified_market_reference",
       "comparison_scope": "model_family_benchmark_quantization_adapters_and_runtime_may_differ",
@@ -145,8 +145,8 @@
         "verified_on": "2026-11-18"
       },
       "nodara_price": {
-        "usd_per_image": "0.0285",
-        "discount_percent": 5
+        "usd_per_image": "0.0291",
+        "discount_percent": 3
       },
       "status": "verified_market_reference",
       "comparison_scope": "model_family_benchmark_quantization_adapters_and_runtime_may_differ",
@@ -174,7 +174,7 @@
       "common_market_price": null,
       "nodara_price": {
         "usd_per_image": null,
-        "discount_percent": 5
+        "discount_percent": 3
       },
       "status": "needs_fixed_preset_reference",
       "comparison_scope": "model_family_benchmark_quantization_adapters_and_runtime_may_differ",
@@ -216,8 +216,8 @@
         "calculation": "512 * 512 / 1000000 * 0.005"
       },
       "nodara_price": {
-        "usd_per_image": "0.001245184",
-        "discount_percent": 5
+        "usd_per_image": "0.0012713984",
+        "discount_percent": 3
       },
       "status": "verified_market_reference",
       "comparison_scope": "model_family_benchmark_quantization_adapters_and_runtime_may_differ",
